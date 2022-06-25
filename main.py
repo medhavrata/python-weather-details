@@ -5,10 +5,11 @@ from bs4 import BeautifulSoup
 
 
 def umbrellaReminder():
-	city = "Hyderabad"
+	city = "Manchester"
 	
 	# creating url and requests instance
 	url = "https://www.google.com/search?q=" + "weather" + city
+    print(url)
 	html = requests.get(url).content
 	
 	# getting raw data
@@ -29,7 +30,7 @@ def umbrellaReminder():
 		
 		# Authentication
 		smtp_object.login("YOUR EMAIL", "PASSWORD")
-		subject = "GeeksforGeeks Umbrella Reminder"
+		subject = "Umbrella Reminder"
 		body = f"Take an umbrella before leaving the house.\
 		Weather condition for today is {sky} and temperature is\
 		{temperature} in {city}."
@@ -46,7 +47,7 @@ def umbrellaReminder():
 
 
 # Every day at 06:00AM time umbrellaReminder() is called.
-schedule.every().day.at("06:00").do(umbrellaReminder)
+schedule.every().day.at("08:00").do(umbrellaReminder)
 
 while True:
 	schedule.run_pending()
