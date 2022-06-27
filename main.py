@@ -3,13 +3,15 @@ import smtplib
 import requests
 from bs4 import BeautifulSoup
 
+def test_function():
+	print("yahoo")
 
 def umbrellaReminder():
 	city = "Manchester"
 	
 	# creating url and requests instance
 	url = "https://www.google.com/search?q=" + "weather" + city
-    print(url)
+    # print(url)
 	html = requests.get(url).content
 	
 	# getting raw data
@@ -47,7 +49,10 @@ def umbrellaReminder():
 
 
 # Every day at 06:00AM time umbrellaReminder() is called.
-schedule.every().day.at("08:00").do(umbrellaReminder)
+# schedule.every().day.at("08:00").do(umbrellaReminder)
 
-while True:
-	schedule.run_pending()
+# while True:
+	# schedule.run_pending()
+
+if __name__ == "__main__":
+	test_function()
